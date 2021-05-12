@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using _1150GroupAPI.Models;
 using _1150GroupAPI.Providers;
 using _1150GroupAPI.Results;
+using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Controllers
 {

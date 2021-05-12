@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using _1150GroupAPI.Models;
+using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI
 {

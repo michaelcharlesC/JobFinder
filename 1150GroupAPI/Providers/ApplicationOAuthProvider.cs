@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using _1150GroupAPI.Models;
+using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Providers
 {
