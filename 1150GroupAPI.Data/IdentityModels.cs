@@ -1,8 +1,12 @@
-﻿using System.Security.Claims;
+﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using static _1150GroupAPI.Data.ApplicationDbContext;
 
 namespace _1150GroupAPI.Data
 {
@@ -24,10 +28,40 @@ namespace _1150GroupAPI.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+        {
+            public IdentityUserLoginConfiguration()
+            {
+                HasKey(iul => iul.UserId);
+            }
+        }
+        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+        {
+            public IdentityUserRoleConfiguration()
+            {
+                HasKey(iur => iur.UserId);
+            }
+        }
         
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        public DbSet<CompanyProfile> Companies { get; set; }
+        public DbSet<CompanyLocation> CompanyLocations { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Application> Applications { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Conventions
+                .Remove<PluralizingTableNameConvention>();
+
+            modelBuilder
+                .Configurations
+                .Add(new IdentityUserLoginConfiguration())
+                .Add(new IdentityUserRoleConfiguration());
         }
     }
 }
