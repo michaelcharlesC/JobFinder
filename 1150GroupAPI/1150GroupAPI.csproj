@@ -211,6 +211,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompanyProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -394,6 +395,14 @@
     <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
       <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
       <Name>1150GroupAPI.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1150GroupAPI.Models\1150GroupAPI.Models.csproj">
+      <Project>{F7707939-1B33-44EB-A799-EA9BF9B0B796}</Project>
+      <Name>1150GroupAPI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1150GroupAPI.Services\1150GroupAPI.Services.csproj">
+      <Project>{816E44B2-D670-4D65-B20A-B6595A3DE30E}</Project>
+      <Name>1150GroupAPI.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
