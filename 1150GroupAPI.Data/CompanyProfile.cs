@@ -16,8 +16,9 @@ namespace _1150GroupAPI.Data
         [ForeignKey(nameof(Address))]
         public string Address { get; set; }
         public virtual CompanyLocation CompanyAddress { get; set; }
-        [ForeignKey(nameof(ListOfJobs))]
         public ICollection<Job> ListOfJobs { get; set; }
+        [ForeignKey(nameof(Category))]
+        public virtual Category Category { get; set; }
 
     }
 }

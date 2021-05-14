@@ -8,5 +8,7 @@ namespace _1150GroupAPI.Models
 {
     public class CompanyProfileDetail
     {
+        public int CompanyID { get; set; }
+        public string CompanyName { get; set; }
     }
 }

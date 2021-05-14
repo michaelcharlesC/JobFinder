@@ -27,5 +27,66 @@ namespace _1150GroupAPI.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<CompanyProfileListItem> GetCompanies()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Companies
+                    .Select(
+                        e =>
+                        new CompanyProfileListItem
+                        {
+                            CompanyID = e.CompanyID,
+                            CompanyName = e.CompanyName
+                        });
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<CompanyProfileDetail> GetCompanyByCompanyId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var company = ctx
+                    .Companies
+                    .Select(p =>
+                    new CompanyProfileDetail
+                    {
+                        CompanyID = p.CompanyID,
+                        CompanyName = p.CompanyName
+                    });
+                return company;
+            }
+        }
+        public bool DeleteCompanyProfile(int companyid)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Companies
+                    .Single(e => e.CompanyID == companyid);
+
+                ctx.Companies.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool UpdateCompany(CompanyProfileEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Companies
+                    .Single(e => e.CompanyID == model.CompanyID);
+
+                entity.CompanyID = model.CompanyID;
+                entity.CompanyName = model.CompanyName;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -8,5 +8,7 @@ namespace _1150GroupAPI.Models
 {
     public class CompanyProfileEdit
     {
+        public int CompanyID { get; set; }
+        public string CompanyName { get; set; }
     }
 }
