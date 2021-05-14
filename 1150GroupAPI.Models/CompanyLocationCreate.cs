@@ -9,5 +9,7 @@ namespace _1150GroupAPI.Models
     public class CompanyLocationCreate
     {
         public int MyProperty { get; set; }
+
+        public int MyProperty2 { get; set; }
     }
 }
