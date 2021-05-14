@@ -54,6 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompanyProfileModels\CompanyProfileCreate.cs" />
+    <Compile Include="CompanyProfileModels\CompanyProfileDelete.cs" />
+    <Compile Include="CompanyProfileModels\CompanyProfileDetail.cs" />
+    <Compile Include="CompanyProfileModels\CompanyProfileEdit.cs" />
+    <Compile Include="CompanyProfileModels\CompanyProfileListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
