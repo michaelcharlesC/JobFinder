@@ -10,9 +10,8 @@ namespace _1150GroupAPI.Data
 {
     public class CompanyLocation
     {
-        [ForeignKey(nameof(LocationID))]
+        [Key]
         public int LocationID { get; set; }
-        public virtual CompanyProfile CompanyProfileID { get; set; }
 
         //[required]
         //public string locationname { get; set; }
