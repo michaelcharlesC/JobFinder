@@ -87,11 +87,15 @@
       <Name>1150GroupAPI.Data</Name>
     </ProjectReference>
 
+  </ItemGroup>
+
+
     <Folder Include="ApplicationModel\" />
     <Folder Include="JobModels\" />
 
   </ItemGroup>
   <ItemGroup />
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

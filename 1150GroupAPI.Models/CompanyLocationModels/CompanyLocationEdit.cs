@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1150GroupAPI.Models.CompanyLocationModels
 {
-    class CompanyLocationEdit
+    public class CompanyLocationEdit
     {
         public int LocationID { get; set; }
 
