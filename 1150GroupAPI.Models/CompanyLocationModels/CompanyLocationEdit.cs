@@ -8,5 +8,22 @@ namespace _1150GroupAPI.Models.CompanyLocationModels
 {
     class CompanyLocationEdit
     {
+        public int LocationID { get; set; }
+
+        public string Address
+        {
+            get
+            {
+                return (Street + " " + City + "," + State + " " + Zip);
+            }
+        }
+
+        public string Street { get; set; }
+        
+        public string State { get; set; }
+
+        public string City { get; set; }
+
+        public int Zip { get; set; }
     }
 }
