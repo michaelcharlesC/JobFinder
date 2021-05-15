@@ -12,11 +12,11 @@ namespace _1150GroupAPI.Data
         [Key]
         public int ApplicationId { get; set; }
         public Guid OwnerId { get; set; }
-        public DateTime ApplicationDate
+        public DateTimeOffset ApplicationDate
         {
             get
             {
-                return DateTime.Now;
+                return DateTimeOffset.Now;
             }
         }
         

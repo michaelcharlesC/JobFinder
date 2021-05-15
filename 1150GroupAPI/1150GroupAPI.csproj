@@ -312,6 +312,14 @@
       <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
       <Name>1150GroupAPI.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\1150GroupAPI.Models\1150GroupAPI.Models.csproj">
+      <Project>{f7707939-1b33-44eb-a799-ea9bf9b0b796}</Project>
+      <Name>1150GroupAPI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\1150GroupAPI.Services\1150GroupAPI.Services.csproj">
+      <Project>{816e44b2-d670-4d65-b20a-b6595a3de30e}</Project>
+      <Name>1150GroupAPI.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
