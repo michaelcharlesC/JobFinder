@@ -18,8 +18,20 @@ namespace _1150GroupAPI.Data
                 return DateTime.Now;
             }
         }
-        [Required]
-        public bool WasSubmitted { get; set; }
+        
+        public bool WasSubmitted
+        {
+            get
+            {
+                return WasSubmitted;
+            }
+            set
+            {
+                if (ListOfJobs == null)
+                    WasSubmitted = false;
+
+            }
+        }
         [Required]
         public string  ApplicantFirstName { get; set; }
         [Required]
@@ -27,7 +39,6 @@ namespace _1150GroupAPI.Data
         [Required]
         [DataType(DataType.EmailAddress)]
         public string ApplicantEmail { get; set; }
-        [Required]
         public virtual ICollection<Job> ListOfJobs { get; set; }
 
         public Application()
