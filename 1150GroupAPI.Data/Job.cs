@@ -12,12 +12,12 @@ namespace _1150GroupAPI.Data
     {
         [Key]
         public int JobId { get; set; }
-        [ForeignKey(nameof(CompanyProfile))]
+        [ForeignKey (nameof(CompanyProfile))]
         public int CompanyId { get; set; }
         [Required]
-        [Display(Name = "Job Position")]
+        [Display(Name ="Job Position")]
         public string JobPosition { get; set; }
-        [Required, MaxLength(50, ErrorMessage = "There are too many characters in this field")]
+        [Required, MaxLength(50, ErrorMessage ="There are too many characters in this field")]
         public string JobDescription { get; set; }
         [Required]
         public string JobType { get; set; }
