@@ -22,7 +22,7 @@ namespace _1150GroupAPI.Services
                 {
                     CategoryID = model.CategoryID,
                     CategoryName = model.CategoryName,
-                    CompanyID = model.CompanyID
+                    CompanyID = model.CompanyProfile.CompanyID
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -43,7 +43,7 @@ namespace _1150GroupAPI.Services
                         {
                             CategoryID = e.CategoryID,
                             CategoryName = e.CategoryName,
-                            CompanyID = e.CompanyID
+                            CompanyID = e.CompanyProfile.CompanyID
                         }
                         );
                 return query.ToArray();

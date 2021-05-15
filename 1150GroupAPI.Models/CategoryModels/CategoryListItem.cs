@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1150GroupAPI.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace _1150GroupAPI.Models.CategoryModels
         public string CategoryName { get; set; }
         [ForeignKey(nameof(CompanyID))]
         public int CompanyID { get; set; }
+        public virtual CompanyProfile CompanyProfile { get; set; }
     }
 }
