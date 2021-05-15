@@ -1,4 +1,5 @@
 ﻿using _1150GroupAPI.Data;
+using _1150GroupAPI.Models;
 using _1150GroupAPI.Models.CompanyLocationModels;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace _1150GroupAPI.Services
 {
     public class CompanyLocationServices
     {
-        public bool CreateCompanyLocation(CompanyLocation model)
+        public bool CreateCompanyLocation(CompanyLocationCreate model)
         {
             var entity =
                 new CompanyLocation()
