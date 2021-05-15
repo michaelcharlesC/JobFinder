@@ -24,6 +24,7 @@ namespace _1150GroupAPI.Services
                 ApplicantFirstName = model.ApplicantFirstName,
                 ApplicantEmail = model.ApplicantEmail,
                 ApplicantLastName = model.ApplicantLastName,
+               
 
             };
 
@@ -70,13 +71,21 @@ namespace _1150GroupAPI.Services
             }
         }
 
-        //public ApplicationDetail GetApplicationsByJobId(int jobId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query = ctx.Jobs.Single(e => )
-        //    }
-        //}
+        public ApplicationDetail GetApplicationsByJobId(int jobId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var queryJob = ctx.Jobs.FirstOrDefault(e => e.JobId == jobId && e.OwnerId == _userId);
+
+
+                return new ApplicationDetail
+                {
+                    ApplicationId = queryJob.JobId,
+                    ApplicationDate = queryJob.CreatedUtc
+                };
+
+            }
+        }
 
         public bool UpdateApplication(ApplicationEdit model)
         {

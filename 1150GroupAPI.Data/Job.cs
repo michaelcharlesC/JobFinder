@@ -29,6 +29,6 @@ namespace _1150GroupAPI.Data
         public Guid OwnerId { get; set; }
         public virtual CompanyProfile CompanyProfile { get; set; }       // One to many relationship with CompanyProfile
         public virtual List<Application> Applications { get; set; }      //Many to Manay relationship with Application
-        
+
     }
 }
