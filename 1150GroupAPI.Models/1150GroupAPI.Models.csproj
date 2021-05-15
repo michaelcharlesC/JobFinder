@@ -78,8 +78,10 @@
   <ItemGroup />
 
   <ItemGroup>
+    <Folder Include="ApplicationModel\" />
     <Folder Include="JobModels\" />
   </ItemGroup>
+
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
