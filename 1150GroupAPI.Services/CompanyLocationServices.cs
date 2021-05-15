@@ -15,7 +15,7 @@ namespace _1150GroupAPI.Services
             var entity =
                 new CompanyLocation()
                 {
-                    LocationID = model.CompanyProfileID.CompanyID,
+                    LocationID = model.LocationID,
                     Street = model.Street,
                     City = model.City,
                     State = model.State,

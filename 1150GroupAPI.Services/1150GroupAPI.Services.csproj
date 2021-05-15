@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="CategoryService.cs" />
     <Compile Include="CompanyLocationServices.cs" />
     <Compile Include="ApplicationServices.cs" />
