@@ -58,10 +58,9 @@
   </ItemGroup>
   <ItemGroup>
 
+    <Compile Include="CategoryService.cs" />
     <Compile Include="CompanyLocationServices.cs" />
-
     <Compile Include="ApplicationServices.cs" />
-
     <Compile Include="CompanyProfileServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
