@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\1150GroupAPI\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\1150GroupAPI\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -72,16 +72,14 @@
     <Compile Include="CompanyProfileModels\CompanyProfileDetail.cs" />
     <Compile Include="CompanyProfileModels\CompanyProfileEdit.cs" />
     <Compile Include="CompanyProfileModels\CompanyProfileListItem.cs" />
+    <Compile Include="JobsModels\JobCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApplicationModel\" />
-    <Folder Include="JobModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
       <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
