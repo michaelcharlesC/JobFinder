@@ -411,6 +411,10 @@
       <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
       <Name>1150GroupAPI.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\1150GroupAPI.Models\1150GroupAPI.Models.csproj">
+      <Project>{f7707939-1b33-44eb-a799-ea9bf9b0b796}</Project>
+      <Name>1150GroupAPI.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\1150GroupAPI.Services\1150GroupAPI.Services.csproj">
       <Project>{816E44B2-D670-4D65-B20A-B6595A3DE30E}</Project>
       <Name>1150GroupAPI.Services</Name>
