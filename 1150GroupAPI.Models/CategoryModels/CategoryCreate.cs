@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1150GroupAPI.Data
+namespace _1150GroupAPI.Models.CategoryModels
 {
-    public class Category
+   public class CategoryCreate
     {
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
