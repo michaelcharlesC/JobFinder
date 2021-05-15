@@ -70,11 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
-      <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
+      <Project>{4e79df79-0fdf-4b83-bfde-a3f89a92c970}</Project>
       <Name>1150GroupAPI.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\1150GroupAPI.Models\1150GroupAPI.Models.csproj">
-      <Project>{F7707939-1B33-44EB-A799-EA9BF9B0B796}</Project>
+      <Project>{f7707939-1b33-44eb-a799-ea9bf9b0b796}</Project>
       <Name>1150GroupAPI.Models</Name>
     </ProjectReference>
   </ItemGroup>

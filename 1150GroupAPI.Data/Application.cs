@@ -11,15 +11,28 @@ namespace _1150GroupAPI.Data
     {
         [Key]
         public int ApplicationId { get; set; }
-        public DateTime ApplicationDate
+        public Guid OwnerId { get; set; }
+        public DateTimeOffset ApplicationDate
         {
             get
             {
-                return DateTime.Now;
+                return DateTimeOffset.Now;
             }
         }
-        [Required]
-        public bool WasSubmitted { get; set; }
+        
+        public bool WasSubmitted
+        {
+            get
+            {
+                return WasSubmitted;
+            }
+            set
+            {
+                if (ListOfJobs == null)
+                    WasSubmitted = false;
+
+            }
+        }
         [Required]
         public string  ApplicantFirstName { get; set; }
         [Required]
@@ -27,7 +40,6 @@ namespace _1150GroupAPI.Data
         [Required]
         [DataType(DataType.EmailAddress)]
         public string ApplicantEmail { get; set; }
-        [Required]
         public virtual ICollection<Job> ListOfJobs { get; set; }
 
         public Application()
