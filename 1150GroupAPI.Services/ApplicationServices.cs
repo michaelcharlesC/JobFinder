@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1150GroupAPI.Services
 {
-    class ApplicationServices
+    public class ApplicationServices
     {
     }
 }

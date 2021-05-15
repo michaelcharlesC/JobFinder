@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationModel\ApplicationCreate.cs" />
+    <Compile Include="ApplicationModel\ApplicationDetail.cs" />
+    <Compile Include="ApplicationModel\ApplicationEdit.cs" />
+    <Compile Include="ApplicationModel\ApplicationList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,7 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationModel\" />
+    <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
+      <Project>{4e79df79-0fdf-4b83-bfde-a3f89a92c970}</Project>
+      <Name>1150GroupAPI.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
