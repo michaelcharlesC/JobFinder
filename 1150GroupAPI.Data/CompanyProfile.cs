@@ -19,6 +19,10 @@ namespace _1150GroupAPI.Data
         public ICollection<Job> ListOfJobs { get; set; }
         [ForeignKey(nameof(Category))]
         public virtual Category Category { get; set; }
+        public CompanyProfile()
+        {
+            ListOfJobs = new HashSet<Job>();
+        }
 
     }
 }
