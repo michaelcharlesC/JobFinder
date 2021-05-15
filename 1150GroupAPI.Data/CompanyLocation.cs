@@ -24,6 +24,7 @@ namespace _1150GroupAPI.Data
                 return (Street + " " + City + "," + State + " " + Zip);
             }
         }
+
         [Required]
         public string Street { get; set; }
 
