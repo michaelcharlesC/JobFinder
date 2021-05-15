@@ -10,11 +10,15 @@ namespace _1150GroupAPI.Models.ApplicationModel
     public class ApplicationEdit
     {
         [Required]
+        [Display(Name = "Applicant ID")]
+        public int ApplicationId { get; set; }
+        [Display(Name = "Applicant First Name")]
         public string ApplicantFirstName { get; set; }
-        [Required]
+        [Display(Name = "Applicant Last Name")]
         public string ApplicantLastName { get; set; }
-        [Required]
+        
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Applicant Email Address")]
         public string ApplicantEmail { get; set; }
     }
 }
