@@ -10,8 +10,10 @@ namespace _1150GroupAPI.Models.ApplicationModel
     public class ApplicationCreate
     {
         [Required]
+        [MinLength(2,ErrorMessage ="Please enter at least 2 characters")]
         public string ApplicantFirstName { get; set; }
         [Required]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
         public string ApplicantLastName { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]

@@ -11,6 +11,7 @@ namespace _1150GroupAPI.Data
     {
         [Key]
         public int ApplicationId { get; set; }
+        public Guid OwnerId { get; set; }
         public DateTime ApplicationDate
         {
             get
