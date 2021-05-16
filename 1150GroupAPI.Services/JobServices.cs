@@ -25,7 +25,8 @@ namespace _1150GroupAPI.Services
                 JobRequirement = model.JobRequirement,
                 JobDescription = model.JobDescription,
                 JobType = model.JobType,
-                Salary = model.Salary
+                Salary = model.Salary,
+                CompanyId=model.CompanyId
 
             };
 
