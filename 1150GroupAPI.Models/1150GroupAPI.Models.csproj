@@ -75,6 +75,7 @@
     <Compile Include="JobsModels\JobCreate.cs" />
     <Compile Include="JobsModels\JobDetail.cs" />
     <Compile Include="JobsModels\JobEdit.cs" />
+    <Compile Include="JobsModels\JobListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
