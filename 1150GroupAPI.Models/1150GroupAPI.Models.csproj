@@ -73,6 +73,7 @@
     <Compile Include="CompanyProfileModels\CompanyProfileEdit.cs" />
     <Compile Include="CompanyProfileModels\CompanyProfileListItem.cs" />
     <Compile Include="JobsModels\JobCreate.cs" />
+    <Compile Include="JobsModels\JobEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
