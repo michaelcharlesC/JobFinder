@@ -21,13 +21,14 @@ namespace _1150GroupAPI.Data
         public string JobDescription { get; set; }
         [Required]
         public string JobType { get; set; }
+        
         [Required, MaxLength(200, ErrorMessage = "There are too many characters in this field")]
         public string JobRequirement { get; set; }
         public double? Salary { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
         public Guid OwnerId { get; set; }
-        public virtual CompanyProfile CompanyProfile { get; set; }       // One to many relationship with CompanyProfile
+        public virtual CompanyProfile CompanyProfile { get; set; }       // One to many relationship with 
         public virtual List<Application> Applications { get; set; }      //Many to Manay relationship with Application
     }
 }
