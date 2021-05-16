@@ -140,6 +140,19 @@ namespace _1150GroupAPI.Services
                 
             }
         }
+        public bool DeleteJob(int jobid)
+        {
+            using (var ctx=new ApplicationDbContext())
+            {
+                var job = ctx
+                            .Jobs
+                            .Find(jobid);
+                if (job is null)
+                    return false;
+                ctx.Jobs.Remove(job);
+                return ctx.SaveChanges() == 1;
+            }
+        }
         
         
     }
