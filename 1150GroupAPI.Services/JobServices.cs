@@ -121,6 +121,25 @@ namespace _1150GroupAPI.Services
                 return query;
             }
         }
+        public bool UpdateJob(JobEdit model, int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var job = ctx
+                            .Jobs
+                            .Find(id);
+                if (job is null)
+                    return false;
+                job.JobPosition = model.JobPosition;
+                job.JobRequirement = model.JobRequirement;
+                job.JobType = model.JobType;
+                job.Salary = model.Salary;
+                job.JobDescription = model.JobDescription;
+
+                return ctx.SaveChanges() == 1;
+                
+            }
+        }
         
         
     }
