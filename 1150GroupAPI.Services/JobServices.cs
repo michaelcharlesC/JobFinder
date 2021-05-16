@@ -71,6 +71,23 @@ namespace _1150GroupAPI.Services
                 return jobdetail;
             }
         }
+        public IEnumerable<JobListItem> GetJobByZipCode(int zipcode)
+        {
+            using(var ctx =new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Jobs
+                                .Where(e => e.CompanyProfile.CompanyLocation.Zip == zipcode)
+                                .Select(e => new JobListItem()
+                                {
+                                    JobId = e.JobId,
+                                    JobPosition = e.JobPosition,
+                                    JobType = e.JobType
+                                }).ToList();
+                return query;
+            }
+            
+        }
         
     }
 }
