@@ -15,12 +15,12 @@ namespace _1150GroupAPI.Services
         {
             _UserId = userid;
         }
-        
+
         public bool CreateJob(JobCreate model)
         {
             var jobEntity = new Job()
             {
-                OwnerId=_UserId,
+                OwnerId = _UserId,
                 JobPosition = model.JobPosition,
                 JobRequirement = model.JobRequirement,
                 JobDescription = model.JobDescription,
@@ -29,11 +29,27 @@ namespace _1150GroupAPI.Services
 
             };
 
-            using(var ctx=new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 ctx.Jobs.Add(jobEntity);
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<JobListItem> GetAllJobs()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Jobs
+                                .Select(e => new JobListItem()
+                                {
+                                    JobId = e.JobId,
+                                    JobPosition = e.JobPosition,
+                                    JobType = e.JobType
+                                });
+                return query.ToList();
+            }
+        }
+        
     }
 }
