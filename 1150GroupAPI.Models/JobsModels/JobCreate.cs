@@ -19,6 +19,7 @@ namespace _1150GroupAPI.Models.JobsModels
         [Required, MaxLength(200, ErrorMessage = "There are too many characters in this field")]
         public string JobRequirement { get; set; }
         public double? Salary { get; set; }
+        public int CompanyId { get; set; }
         
         
     }
