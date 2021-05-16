@@ -50,6 +50,27 @@ namespace _1150GroupAPI.Services
                 return query.ToList();
             }
         }
+        public JobDetail GetJobByJobId(int jobid)
+        {
+            using(var ctx=new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Jobs
+                                .SingleOrDefault(e => e.JobId == jobid);
+                if (query is null)
+                    return null;
+                var jobdetail = new JobDetail()
+                {
+                    JobId = query.JobId,
+                    JobPosition = query.JobPosition,
+                    JobDescription = query.JobDescription,
+                    JobRequirement = query.JobRequirement,
+                    JobType = query.JobType,
+                    Salary = query.Salary
+                };
+                return jobdetail;
+            }
+        }
         
     }
 }
