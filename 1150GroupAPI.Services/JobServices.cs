@@ -104,6 +104,22 @@ namespace _1150GroupAPI.Services
                 return query;
             }
         }
+        public IEnumerable<JobListItem>GetJobByCompanyNameAndSalary(double salary,string comapnyname,string joptype)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Jobs
+                                .Where(e => e.CompanyProfile.CompanyName == comapnyname && e.Salary >= salary && e.JobType == joptype)
+                                .Select(e => new JobListItem()
+                                {
+                                    JobId = e.JobId,
+                                    JobPosition = e.JobPosition,
+                                    JobType = e.JobType
+                                }).ToList();
+                return query;
+            }
+        }
         
         
     }
