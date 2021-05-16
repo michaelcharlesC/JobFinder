@@ -61,6 +61,7 @@
     <Compile Include="CompanyLocationServices.cs" />
     <Compile Include="ApplicationServices.cs" />
     <Compile Include="CompanyProfileServices.cs" />
+    <Compile Include="JobServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
