@@ -88,6 +88,23 @@ namespace _1150GroupAPI.Services
             }
             
         }
+        public IEnumerable<JobListItem>GetJobByCompanyName(string companyname)
+        {
+            using(var ctx=new ApplicationDbContext())
+            {
+                var query =ctx
+                                .Jobs
+                                .Where(e=>e.CompanyProfile.CompanyName==companyname)
+                                .Select(e => new JobListItem()
+                                {
+                                    JobId = e.JobId,
+                                    JobPosition = e.JobPosition,
+                                    JobType = e.JobType
+                                }).ToList();
+                return query;
+            }
+        }
+        
         
     }
 }
