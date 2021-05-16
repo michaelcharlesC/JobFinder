@@ -21,7 +21,7 @@ namespace _1150GroupAPI.Data
         public string JobDescription { get; set; }
         [Required]
         public string JobType { get; set; }
-        public int MyProperty { get; set; }
+        
         [Required, MaxLength(200, ErrorMessage = "There are too many characters in this field")]
         public string JobRequirement { get; set; }
         public double? Salary { get; set; }
