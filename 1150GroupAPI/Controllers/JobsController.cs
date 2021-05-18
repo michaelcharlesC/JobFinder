@@ -61,5 +61,12 @@ namespace _1150GroupAPI.Controllers
             var jobs = jobservices.GetJobByCompanyName(companyName);
             return Ok(jobs);
         }
+        [Route("api/Job/companyNameandSalary")]
+        public IHttpActionResult GetJobsBySalaryAndJobType(double salary, string comapnyname, string joptype)
+        {
+            JobServices jobservices = CreateJobServices();
+            var jobs = jobservices.GetJobByCompanyNameAndSalary(salary, comapnyname, joptype);
+            return Ok(jobs);
+        }
     }
 }
