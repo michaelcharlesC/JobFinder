@@ -14,6 +14,5 @@ namespace _1150GroupAPI.Models.CategoryModels
         public string CategoryName { get; set; }
         [ForeignKey(nameof(CompanyID))]
         public int CompanyID { get; set; }
-        public virtual CompanyProfile CompanyProfile { get; set; }
     }
 }
