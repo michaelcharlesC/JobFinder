@@ -129,7 +129,7 @@ namespace _1150GroupAPI.Services
             {
                 var job = ctx
                             .Jobs
-                            .Find(id);
+                            .SingleOrDefault(j=>j.OwnerId==_UserId&&j.JobId==id);
                 if (job is null)
                     return false;
                 job.JobPosition = model.JobPosition;

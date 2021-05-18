@@ -33,5 +33,26 @@ namespace _1150GroupAPI.Controllers
 
             return Ok();
         }
+        public IHttpActionResult GetAllJob()
+        {
+            JobServices jobService = CreateJobServices();
+            var jobs = jobService.GetAllJobs();
+            return Ok(jobs);
+
+        }
+        [Route("api/Job/{id}")]
+        public IHttpActionResult GetJobById([FromUri]int id)
+        {
+            JobServices jobServices = CreateJobServices();
+            var job = jobServices.GetJobByJobId(id);
+            return Ok(job);
+        }
+        [Route("api/Job/{zipcode}")]
+        public IHttpActionResult GetJobByZipCode(int zipcode)
+        {
+            JobServices jobservices = CreateJobServices();
+            var job = jobservices.GetJobByZipCode(zipcode);
+            return Ok(job);
+        }
     }
 }
