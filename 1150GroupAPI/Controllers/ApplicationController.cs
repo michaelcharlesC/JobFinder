@@ -19,14 +19,14 @@ namespace _1150GroupAPI.Controllers
             var applicationService = new ApplicationServices(userId);
             return applicationService;
         }
-
+        [HttpGet]
         public IHttpActionResult Get()
         {
             ApplicationServices applicationService = CreateAplicationService();
             var application = applicationService.GetAllApplications();
             return Ok(application);
         }
-
+        [HttpPost]
         public IHttpActionResult Post(ApplicationCreate application)
         {
             if (!ModelState.IsValid)
@@ -39,14 +39,21 @@ namespace _1150GroupAPI.Controllers
 
             return Ok();
         }
-
+        [HttpGet]
         public IHttpActionResult Get(int id)
         {
             ApplicationServices applicationService = CreateAplicationService();
             var application = applicationService.GetAplicationById(id);
             return Ok(application);
         }
-
+        [HttpGet]
+        public IHttpActionResult GetByJobId(int jobId)
+        {
+            ApplicationServices applicationService = CreateAplicationService();
+            var application = applicationService.GetApplicationsByJobId(jobId);
+            return Ok(application);
+        }
+        [HttpPut]
         public IHttpActionResult Put(ApplicationEdit application)
         {
             if (!ModelState.IsValid)
@@ -61,7 +68,7 @@ namespace _1150GroupAPI.Controllers
 
 
         }
-
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateAplicationService();
