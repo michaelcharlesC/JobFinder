@@ -1,4 +1,5 @@
-﻿using _1150GroupAPI.Services;
+﻿using _1150GroupAPI.Models.JobsModels;
+using _1150GroupAPI.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,20 @@ namespace _1150GroupAPI.Controllers
             var jservices = new JobServices(userid);
             return jservices;
 
+        }
+        public IHttpActionResult PostJob(JobCreate model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            if (model is null)
+                return BadRequest("You cannot have an empty input");
+
+            var service = CreateJobServices();
+
+            if (!service.CreateJob(model))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }
