@@ -9,7 +9,7 @@ namespace _1150GroupAPI.Models
 {
     public class CompanyLocationCreate
     {
-        public string CompanyProfileID { get; set; }
+        public int LocationID { get; set; }
 
         [Required]
         public string Street { get; set; }
