@@ -54,5 +54,12 @@ namespace _1150GroupAPI.Controllers
             var job = jobservices.GetJobByZipCode(zipcode);
             return Ok(job);
         }
+        [Route("api/Job/companyName")]
+        public IHttpActionResult GetAllJobsByCompanyName(string companyName)
+        {
+            JobServices jobservices = CreateJobServices();
+            var jobs = jobservices.GetJobByCompanyName(companyName);
+            return Ok(jobs);
+        }
     }
 }
