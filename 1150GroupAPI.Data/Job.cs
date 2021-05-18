@@ -28,6 +28,6 @@ namespace _1150GroupAPI.Data
         public DateTimeOffset? ModifiedUtc { get; set; }
         public Guid OwnerId { get; set; }
         public virtual CompanyProfile CompanyProfile { get; set; }       // One to many relationship with CompanyProfile
-        public virtual List<Application> Applications { get; set; }      //Many to Manay relationship with Application
+        public virtual List<Applicant> Applications { get; set; }      //Many to Manay relationship with Application
     }
 }

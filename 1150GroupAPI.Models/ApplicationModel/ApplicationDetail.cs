@@ -10,9 +10,9 @@ namespace _1150GroupAPI.Models.ApplicationModel
 {
     public class ApplicationDetail
     {
-        public int ApplicationId { get; set; }
+        public int ApplicantId { get; set; }
         [Display(Name = "Submitted on")]
-        public DateTimeOffset ApplicationDate { get; set; }
+        public DateTimeOffset ApplicantDate { get; set; }
         [Display(Name = "Applicant First Name")]
         public string ApplicantFirstName { get; set; }
         [Display(Name = "Applicant Last Name")]

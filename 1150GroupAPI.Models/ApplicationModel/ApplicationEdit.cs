@@ -11,7 +11,7 @@ namespace _1150GroupAPI.Models.ApplicationModel
     {
         [Required]
         [Display(Name = "Applicant ID")]
-        public int ApplicationId { get; set; }
+        public int ApplicantId { get; set; }
         [Display(Name = "Applicant First Name")]
         public string ApplicantFirstName { get; set; }
         [Display(Name = "Applicant Last Name")]

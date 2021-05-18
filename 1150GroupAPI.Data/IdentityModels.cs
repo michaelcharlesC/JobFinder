@@ -51,7 +51,7 @@ namespace _1150GroupAPI.Data
         public DbSet<CompanyLocation> CompanyLocations { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Application> Applications { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

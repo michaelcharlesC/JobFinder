@@ -19,7 +19,7 @@ namespace _1150GroupAPI.Services
 
         public bool CreateApplication(ApplicationCreate model)
         {
-            var entity = new Application()
+            var entity = new Applicant()
             {
                 ApplicantFirstName = model.ApplicantFirstName,
                 ApplicantEmail = model.ApplicantEmail,
@@ -30,7 +30,7 @@ namespace _1150GroupAPI.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Applications.Add(entity);
+                ctx.Applicants.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -39,7 +39,7 @@ namespace _1150GroupAPI.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Applications.Where(e => e.OwnerId == _userId)
+                var query = ctx.Applicants.Where(e => e.OwnerId == _userId)
                     .Select(e => new ApplicationList
                     {
                         ApplicantEmail = e.ApplicantEmail,
@@ -55,15 +55,15 @@ namespace _1150GroupAPI.Services
         {
             using( var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Applications.Single(e => e.ApplicationId == id && e.OwnerId == _userId);
+                var query = ctx.Applicants.Single(e => e.ApplicantId == id && e.OwnerId == _userId);
 
                 return new ApplicationDetail
                 {
-                    ApplicationId = query.ApplicationId,
+                    ApplicantId = query.ApplicantId,
                     ApplicantFirstName = query.ApplicantFirstName,
                     ApplicantLastName = query.ApplicantLastName,
                     ApplicantEmail = query.ApplicantEmail,
-                    ApplicationDate = query.ApplicationDate
+                    ApplicantDate = query.ApplicationDate
                 };
 
 
@@ -80,8 +80,8 @@ namespace _1150GroupAPI.Services
 
                 return new ApplicationDetail
                 {
-                    ApplicationId = queryJob.JobId,
-                    ApplicationDate = queryJob.CreatedUtc
+                    ApplicantId = queryJob.JobId,
+                    ApplicantDate = queryJob.CreatedUtc
                 };
 
             }
@@ -91,7 +91,7 @@ namespace _1150GroupAPI.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Applications.Single(e => e.ApplicationId == model.ApplicationId && e.OwnerId == _userId);
+                var entity = ctx.Applicants.Single(e => e.ApplicantId == model.ApplicantId && e.OwnerId == _userId);
                 entity.ApplicantFirstName = model.ApplicantFirstName;
                 entity.ApplicantLastName = model.ApplicantLastName;
                 entity.ApplicantEmail = model.ApplicantEmail;
@@ -104,8 +104,8 @@ namespace _1150GroupAPI.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Applications.Single(e => e.ApplicationId == applicationId && e.OwnerId == _userId);
-                ctx.Applications.Remove(entity);
+                var entity = ctx.Applicants.Single(e => e.ApplicantId == applicationId && e.OwnerId == _userId);
+                ctx.Applicants.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

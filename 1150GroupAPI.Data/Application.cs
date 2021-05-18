@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace _1150GroupAPI.Data
 {
-    public class Application
+    public class Applicant
     {
         [Key]
-        public int ApplicationId { get; set; }
+        public int ApplicantId { get; set; }
         public Guid OwnerId { get; set; }
         public DateTimeOffset ApplicationDate
         {
@@ -42,7 +42,7 @@ namespace _1150GroupAPI.Data
         public string ApplicantEmail { get; set; }
         public virtual ICollection<Job> ListOfJobs { get; set; }
 
-        public Application()
+        public Applicant()
         {
             ListOfJobs = new HashSet<Job>();
         }
