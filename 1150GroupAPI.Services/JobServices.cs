@@ -122,6 +122,8 @@ namespace _1150GroupAPI.Services
             }
         }
         public bool UpdateJob(JobEdit model, int id)
+
+
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -152,6 +154,7 @@ namespace _1150GroupAPI.Services
                 ctx.Jobs.Remove(job);
                 return ctx.SaveChanges() == 1;
             }
+
         }
         
         
