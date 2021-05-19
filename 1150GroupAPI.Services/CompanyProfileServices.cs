@@ -22,6 +22,8 @@ namespace _1150GroupAPI.Services
                 var companyentity = new CompanyProfile();
                 companyentity.CompanyID = model.CompanyID;
                 companyentity.CompanyName = model.CompanyName;
+                companyentity.CategoryID = model.CategoryID;
+                companyentity.LocationID = model.LocationID;
 
                 ctx.Companies.Add(companyentity);
                 return ctx.SaveChanges() == 1;
@@ -39,7 +41,9 @@ namespace _1150GroupAPI.Services
                         new CompanyProfileListItem
                         {
                             CompanyID = e.CompanyID,
-                            CompanyName = e.CompanyName
+                            CompanyName = e.CompanyName,
+                            CategoryID = e.CategoryID,
+                            LocationID = e.LocationID
                         });
                 return query.ToArray();
             }
@@ -54,7 +58,9 @@ namespace _1150GroupAPI.Services
                     new CompanyProfileDetail
                     {
                         CompanyID = p.CompanyID,
-                        CompanyName = p.CompanyName
+                        CompanyName = p.CompanyName,
+                        CategoryID = p.CategoryID,
+                        LocationID = p.LocationID
                     });
                 return company;
             }
