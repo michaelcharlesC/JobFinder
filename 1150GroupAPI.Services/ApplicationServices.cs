@@ -21,6 +21,7 @@ namespace _1150GroupAPI.Services
         {
             var entity = new Applicant()
             {
+                OwnerId = _userId,
                 ApplicantFirstName = model.ApplicantFirstName,
                 ApplicantEmail = model.ApplicantEmail,
                 ApplicantLastName = model.ApplicantLastName,
@@ -47,7 +48,7 @@ namespace _1150GroupAPI.Services
                         ApplicantLastName = e.ApplicantLastName,
                     });
 
-                return query.ToList();
+                return query.ToArray();
             }
         }
 
