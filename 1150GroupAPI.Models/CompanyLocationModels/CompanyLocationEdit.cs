@@ -8,7 +8,7 @@ namespace _1150GroupAPI.Models.CompanyLocationModels
 {
     public class CompanyLocationEdit
     {
-        public int LocationID { get; set; }
+        public int CompanyID { get; set; }
 
         public string Address
         {
