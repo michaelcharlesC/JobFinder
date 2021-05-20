@@ -16,7 +16,7 @@ namespace _1150GroupAPI.Services
             var entity =
                 new CompanyLocation()
                 {
-                    LocationID = model.LocationID,
+                    CompanyID = model.CompanyID,
                     Street = model.Street,
                     City = model.City,
                     State = model.State,
@@ -37,11 +37,11 @@ namespace _1150GroupAPI.Services
                 var entity =
                     ctx
                         .CompanyLocations
-                        .Single(e => e.LocationID == locationID);
+                        .Single(e => e.CompanyID == locationID);
                 return
                     new CompanyLocationDetail
                     {
-                        LocationID = entity.LocationID,
+                        CompanyID = entity.CompanyID,
                         Street = entity.Street,
                         City = entity.City,
                         State = entity.State,
@@ -57,9 +57,9 @@ namespace _1150GroupAPI.Services
                 var entity =
                     ctx
                         .CompanyLocations
-                        .Single(e => e.LocationID == model.LocationID);
+                        .Single(e => e.CompanyID == model.CompanyID);
 
-                entity.LocationID = model.LocationID;
+                entity.CompanyID = model.CompanyID;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -72,7 +72,7 @@ namespace _1150GroupAPI.Services
                 var entity =
                     ctx
                         .CompanyLocations
-                        .Single(e => e.LocationID == locationId);
+                        .Single(e => e.CompanyID == locationId);
 
                 ctx.CompanyLocations.Remove(entity);
 

@@ -20,10 +20,8 @@ namespace _1150GroupAPI.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var companyentity = new CompanyProfile();
-                companyentity.CompanyID = model.CompanyID;
                 companyentity.CompanyName = model.CompanyName;
                 companyentity.CategoryID = model.CategoryID;
-                companyentity.LocationID = model.LocationID;
 
                 ctx.Companies.Add(companyentity);
                 return ctx.SaveChanges() == 1;
@@ -43,7 +41,6 @@ namespace _1150GroupAPI.Services
                             CompanyID = e.CompanyID,
                             CompanyName = e.CompanyName,
                             CategoryID = e.CategoryID,
-                            LocationID = e.LocationID
                         });
                 return query.ToArray();
             }
@@ -57,10 +54,8 @@ namespace _1150GroupAPI.Services
                     .Select(p =>
                     new CompanyProfileDetail
                     {
-                        CompanyID = p.CompanyID,
                         CompanyName = p.CompanyName,
                         CategoryID = p.CategoryID,
-                        LocationID = p.LocationID
                     });
                 return company;
             }

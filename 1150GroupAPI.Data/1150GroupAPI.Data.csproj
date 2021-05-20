@@ -94,13 +94,9 @@
     <Compile Include="CompanyProfile.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
-    <Compile Include="Migrations\202105151912091_example.cs" />
-    <Compile Include="Migrations\202105151912091_example.designer.cs">
-      <DependentUpon>202105151912091_example.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105182328599_example1.cs" />
-    <Compile Include="Migrations\202105182328599_example1.designer.cs">
-      <DependentUpon>202105182328599_example1.cs</DependentUpon>
+    <Compile Include="Migrations\202105202234488_example.cs" />
+    <Compile Include="Migrations\202105202234488_example.designer.cs">
+      <DependentUpon>202105202234488_example.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,11 +106,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105151912091_example.resx">
-      <DependentUpon>202105151912091_example.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105182328599_example1.resx">
-      <DependentUpon>202105182328599_example1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105202234488_example.resx">
+      <DependentUpon>202105202234488_example.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
