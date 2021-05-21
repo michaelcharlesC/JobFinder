@@ -19,17 +19,19 @@ namespace _1150GroupAPI.Data
                 return DateTimeOffset.Now;
             }
         }
-        
-        public bool WasSubmitted
+
+        private bool _applicationSubmitted;
+        public bool ApplicationSubmitted
         {
             get
             {
-                return WasSubmitted;
+
+                return _applicationSubmitted;
             }
             set
             {
-                if (ListOfJobs == null)
-                    WasSubmitted = false;
+                if (ListOfJobs.Count == 0)
+                    _applicationSubmitted = false;
 
             }
         }
