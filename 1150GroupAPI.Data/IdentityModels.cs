@@ -62,6 +62,13 @@ namespace _1150GroupAPI.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Entity<CompanyLocation>()
+           .HasKey(s => s.CompanyID);
+
+            modelBuilder.Entity<CompanyProfile>()
+            .HasOptional<CompanyLocation>(p => p.CompanyLocation)// can create a company profile without having a company location.
+            .WithRequired(s => s.CompanyProfile);
         }
     }
 }

@@ -9,6 +9,9 @@ namespace _1150GroupAPI.Models
 {
     public class CompanyLocationCreate
     {
+
+       
+
         public int CompanyID { get; set; }
 
         [Required]

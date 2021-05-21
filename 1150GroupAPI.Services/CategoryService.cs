@@ -20,6 +20,9 @@ namespace _1150GroupAPI.Services
             var entity =
                 new Category()
                 {
+
+             
+
                     CategoryName = model.CategoryName,
                 };
             using (var ctx = new ApplicationDbContext())

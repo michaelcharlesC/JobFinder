@@ -14,8 +14,11 @@ namespace _1150GroupAPI.Data
         public int CompanyID { get; set; }
         public virtual CompanyProfile CompanyProfile { get; set; }
 
+
+
         //[required]
         //public string locationname { get; set; }
+
 
         public string Address
         {

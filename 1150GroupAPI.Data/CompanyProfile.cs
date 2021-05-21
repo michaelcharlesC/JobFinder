@@ -13,10 +13,14 @@ namespace _1150GroupAPI.Data
         [Key]
         public int CompanyID { get; set; }
         public string CompanyName { get; set; }
+
+        
+
         public virtual CompanyLocation CompanyLocation { get; set; }
+
         public ICollection<Job> ListOfJobs { get; set; }
         [ForeignKey(nameof(Category))]
-        public int? CategoryID { get; set; }
+        public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
         public CompanyProfile()
         {

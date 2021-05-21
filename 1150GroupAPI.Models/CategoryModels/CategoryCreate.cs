@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace _1150GroupAPI.Models.CategoryModels
 {
-   public class CategoryCreate
+    public class CategoryCreate
     {
+
+
         public string CategoryName { get; set; }
+
+
+     
+
     }
 }
