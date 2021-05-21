@@ -122,17 +122,18 @@
     <Compile Include="Migrations\202105192339461_test2.Designer.cs">
       <DependentUpon>202105192339461_test2.cs</DependentUpon>
 
-    <Compile Include="Migrations\202105202234488_example.cs" />
-    <Compile Include="Migrations\202105202234488_example.designer.cs">
-      <DependentUpon>202105202234488_example.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105190037382_AnyNam.cs" />
-    <Compile Include="Migrations\202105190037382_AnyNam.designer.cs">
-      <DependentUpon>202105190037382_AnyNam.cs</DependentUpon>
 
-    </Compile>
+        <Compile Include="Migrations\202105202234488_example.cs" />
+        <Compile Include="Migrations\202105202234488_example.designer.cs">
+          <DependentUpon>202105202234488_example.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Migrations\202105190037382_AnyNam.cs" />
+        <Compile Include="Migrations\202105190037382_AnyNam.designer.cs">
+          <DependentUpon>202105190037382_AnyNam.cs</DependentUpon>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -160,7 +161,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105192339461_test2.resx">
       <DependentUpon>202105192339461_test2.cs</DependentUpon>
-
+</EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105202234488_example.resx">
       <DependentUpon>202105202234488_example.cs</DependentUpon>
     </EmbeddedResource>

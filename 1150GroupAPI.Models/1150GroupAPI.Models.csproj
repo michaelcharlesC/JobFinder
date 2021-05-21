@@ -82,11 +82,5 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
-      <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
-      <Name>1150GroupAPI.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
