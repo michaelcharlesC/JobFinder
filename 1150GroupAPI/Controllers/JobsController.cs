@@ -47,7 +47,7 @@ namespace _1150GroupAPI.Controllers
             var job = jobServices.GetJobByJobId(id);
             return Ok(job);
         }
-        [Route("api/Job/{zipcode}")]
+        [Route("api/Job/Zipcode/{zipcode}")]
         public IHttpActionResult GetJobByZipCode(int zipcode)
         {
             JobServices jobservices = CreateJobServices();

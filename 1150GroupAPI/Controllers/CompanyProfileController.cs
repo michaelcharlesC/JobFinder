@@ -26,6 +26,16 @@ namespace _1150GroupAPI.Controllers
             var companies = companyService.GetCompanyByCompanyId(id);
             return Ok(companies);
         }
+
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            CompanyProfileServices companyService = CreateCompanyProfileService();
+            var companies = companyService.GetCompanies();
+            return Ok(companies);
+        }
+
+
         [HttpPost]
         public IHttpActionResult Post(CompanyProfileCreate company)
         {

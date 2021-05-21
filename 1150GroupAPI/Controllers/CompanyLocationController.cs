@@ -28,7 +28,7 @@ namespace _1150GroupAPI.Controllers
             return Ok(companies);
         }
         [HttpPost]
-        public IHttpActionResult Post(CompanyLocationCreate companyLocation)
+        public IHttpActionResult Post(CompanyLocationCreate companyLocation )
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

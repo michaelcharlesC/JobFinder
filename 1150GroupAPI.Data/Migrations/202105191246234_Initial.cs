@@ -1,40 +1,43 @@
-﻿namespace _1150GroupAPI.Data.Migrations
+namespace _1150GroupAPI.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class example : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Application",
+                "dbo.Applicant",
                 c => new
                     {
-                        ApplicationId = c.Int(nullable: false, identity: true),
+                        ApplicantId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
                         WasSubmitted = c.Boolean(nullable: false),
                         ApplicantFirstName = c.String(nullable: false),
                         ApplicantLastName = c.String(nullable: false),
                         ApplicantEmail = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.ApplicationId);
+                .PrimaryKey(t => t.ApplicantId);
             
             CreateTable(
                 "dbo.Job",
                 c => new
                     {
                         JobId = c.Int(nullable: false, identity: true),
-                        JobName = c.String(),
-                        JobDescription = c.String(),
-                        JobType = c.String(),
-                        JobRequirement = c.String(),
-                        Salary = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        DateCreated = c.DateTimeOffset(nullable: false, precision: 7),
-                        CompanyID = c.Int(nullable: false),
+                        CompanyId = c.Int(nullable: false),
+                        JobPosition = c.String(nullable: false),
+                        JobDescription = c.String(nullable: false, maxLength: 50),
+                        JobType = c.String(nullable: false),
+                        JobRequirement = c.String(nullable: false, maxLength: 200),
+                        Salary = c.Double(),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        OwnerId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.JobId)
-                .ForeignKey("dbo.CompanyProfile", t => t.CompanyID, cascadeDelete: true)
-                .Index(t => t.CompanyID);
+                .ForeignKey("dbo.CompanyProfile", t => t.CompanyId, cascadeDelete: true)
+                .Index(t => t.CompanyId);
             
             CreateTable(
                 "dbo.CompanyProfile",
@@ -42,12 +45,12 @@
                     {
                         CompanyID = c.Int(nullable: false, identity: true),
                         CompanyName = c.String(),
-                        LocationID = c.Int(nullable: false),
-                        CategoryID = c.Int(nullable: false),
+                        LocationID = c.Int(),
+                        CategoryID = c.Int(),
                     })
                 .PrimaryKey(t => t.CompanyID)
-                .ForeignKey("dbo.Category", t => t.CategoryID, cascadeDelete: true)
-                .ForeignKey("dbo.CompanyLocation", t => t.LocationID, cascadeDelete: true)
+                .ForeignKey("dbo.Category", t => t.CategoryID)
+                .ForeignKey("dbo.CompanyLocation", t => t.LocationID)
                 .Index(t => t.LocationID)
                 .Index(t => t.CategoryID);
             
@@ -143,17 +146,17 @@
                 .Index(t => t.ApplicationUser_Id);
             
             CreateTable(
-                "dbo.JobApplication",
+                "dbo.JobApplicant",
                 c => new
                     {
                         Job_JobId = c.Int(nullable: false),
-                        Application_ApplicationId = c.Int(nullable: false),
+                        Applicant_ApplicantId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Job_JobId, t.Application_ApplicationId })
+                .PrimaryKey(t => new { t.Job_JobId, t.Applicant_ApplicantId })
                 .ForeignKey("dbo.Job", t => t.Job_JobId, cascadeDelete: true)
-                .ForeignKey("dbo.Application", t => t.Application_ApplicationId, cascadeDelete: true)
+                .ForeignKey("dbo.Applicant", t => t.Applicant_ApplicantId, cascadeDelete: true)
                 .Index(t => t.Job_JobId)
-                .Index(t => t.Application_ApplicationId);
+                .Index(t => t.Applicant_ApplicantId);
             
         }
         
@@ -163,21 +166,21 @@
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Job", "CompanyID", "dbo.CompanyProfile");
+            DropForeignKey("dbo.Job", "CompanyId", "dbo.CompanyProfile");
             DropForeignKey("dbo.CompanyProfile", "LocationID", "dbo.CompanyLocation");
             DropForeignKey("dbo.CompanyProfile", "CategoryID", "dbo.Category");
-            DropForeignKey("dbo.JobApplication", "Application_ApplicationId", "dbo.Application");
-            DropForeignKey("dbo.JobApplication", "Job_JobId", "dbo.Job");
-            DropIndex("dbo.JobApplication", new[] { "Application_ApplicationId" });
-            DropIndex("dbo.JobApplication", new[] { "Job_JobId" });
+            DropForeignKey("dbo.JobApplicant", "Applicant_ApplicantId", "dbo.Applicant");
+            DropForeignKey("dbo.JobApplicant", "Job_JobId", "dbo.Job");
+            DropIndex("dbo.JobApplicant", new[] { "Applicant_ApplicantId" });
+            DropIndex("dbo.JobApplicant", new[] { "Job_JobId" });
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.CompanyProfile", new[] { "CategoryID" });
             DropIndex("dbo.CompanyProfile", new[] { "LocationID" });
-            DropIndex("dbo.Job", new[] { "CompanyID" });
-            DropTable("dbo.JobApplication");
+            DropIndex("dbo.Job", new[] { "CompanyId" });
+            DropTable("dbo.JobApplicant");
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
@@ -187,7 +190,7 @@
             DropTable("dbo.Category");
             DropTable("dbo.CompanyProfile");
             DropTable("dbo.Job");
-            DropTable("dbo.Application");
+            DropTable("dbo.Applicant");
         }
     }
 }
