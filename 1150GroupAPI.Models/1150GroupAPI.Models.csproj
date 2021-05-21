@@ -81,10 +81,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
-      <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
+      <Project>{4e79df79-0fdf-4b83-bfde-a3f89a92c970}</Project>
       <Name>1150GroupAPI.Data</Name>
     </ProjectReference>
   </ItemGroup>

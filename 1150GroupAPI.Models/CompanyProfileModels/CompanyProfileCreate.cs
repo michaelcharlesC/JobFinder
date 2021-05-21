@@ -13,8 +13,6 @@ namespace _1150GroupAPI.Models
         public string CompanyName { get; set; }
        
         public int CategoryID { get; set; }
-
-        public string CompanyName { get; set; }
        
 
     }

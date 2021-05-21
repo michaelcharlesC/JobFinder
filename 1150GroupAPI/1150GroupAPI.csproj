@@ -408,8 +408,14 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\1150GroupAPI.Data\1150GroupAPI.Data.csproj">
-      <Project>{4E79DF79-0FDF-4B83-BFDE-A3F89A92C970}</Project>
+      <Project>{4e79df79-0fdf-4b83-bfde-a3f89a92c970}</Project>
       <Name>1150GroupAPI.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\1150GroupAPI.Models\1150GroupAPI.Models.csproj">
@@ -417,15 +423,9 @@
       <Name>1150GroupAPI.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\1150GroupAPI.Services\1150GroupAPI.Services.csproj">
-      <Project>{816E44B2-D670-4D65-B20A-B6595A3DE30E}</Project>
+      <Project>{816e44b2-d670-4d65-b20a-b6595a3de30e}</Project>
       <Name>1150GroupAPI.Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

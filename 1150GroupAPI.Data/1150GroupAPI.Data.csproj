@@ -121,7 +121,7 @@
     <Compile Include="Migrations\202105192339461_test2.cs" />
     <Compile Include="Migrations\202105192339461_test2.Designer.cs">
       <DependentUpon>202105192339461_test2.cs</DependentUpon>
-
+    </Compile>
     <Compile Include="Migrations\202105202234488_example.cs" />
     <Compile Include="Migrations\202105202234488_example.designer.cs">
       <DependentUpon>202105202234488_example.cs</DependentUpon>
@@ -160,7 +160,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105192339461_test2.resx">
       <DependentUpon>202105192339461_test2.cs</DependentUpon>
-
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105202234488_example.resx">
       <DependentUpon>202105202234488_example.cs</DependentUpon>
     </EmbeddedResource>

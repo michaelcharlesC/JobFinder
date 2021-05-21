@@ -1,10 +1,11 @@
-﻿using System;
+﻿
+using _1150GroupAPI.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Models.ApplicationModel
 {
@@ -20,6 +21,6 @@ namespace _1150GroupAPI.Models.ApplicationModel
         [Display(Name = "Applicant Email Address")]
         public string ApplicantEmail { get; set; }
         [Display(Name = "List of Applied Jobs")]
-        public virtual ICollection<Job> ListOfJobs { get; set; }
+       public virtual ICollection<Job> ListOfJobs { get; set; }
     }
 }
