@@ -16,7 +16,11 @@ namespace _1150GroupAPI.Services
             var entity =
                 new CompanyLocation()
                 {
-                    CompanyID = model.CompanyId,
+
+                 
+
+                    CompanyID = model.CompanyID,
+
                     Street = model.Street,
                     City = model.City,
                     State = model.State,
@@ -41,7 +45,11 @@ namespace _1150GroupAPI.Services
                 return
                     new CompanyLocationDetail
                     {
-                        LocationID = entity.CompanyID,
+
+                       
+
+                        CompanyID = entity.CompanyID,
+
                         Street = entity.Street,
                         City = entity.City,
                         State = entity.State,
@@ -57,9 +65,12 @@ namespace _1150GroupAPI.Services
                 var entity =
                     ctx
                         .CompanyLocations
-                        .Single(e => e.CompanyID == model.LocationID);
 
-                entity.CompanyID = model.LocationID;
+                   
+                        .Single(e => e.CompanyID == model.CompanyID);
+
+                entity.CompanyID = model.CompanyID;
+
 
                 return ctx.SaveChanges() == 1;
             }

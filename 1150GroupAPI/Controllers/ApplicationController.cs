@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace _1150GroupAPI.Controllers
 {
-    [Authorize]
+   [Authorize]
     public class ApplicationController : ApiController
     {
         private ApplicationServices CreateAplicationService()
