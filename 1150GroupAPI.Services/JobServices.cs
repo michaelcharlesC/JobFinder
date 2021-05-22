@@ -148,7 +148,7 @@ namespace _1150GroupAPI.Services
             {
                 var job = ctx
                             .Jobs
-                            .Find(jobid);
+                            .SingleOrDefault(e=>e.OwnerId==_UserId&&e.JobId==jobid);
                 if (job is null)
                     return false;
                 ctx.Jobs.Remove(job);
