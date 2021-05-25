@@ -53,22 +53,20 @@ namespace _1150GroupAPI.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<CompanyProfileDetail> GetCompanyByCompanyId(int id)
+        public CompanyProfileDetail GetCompanyByCompanyId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var company = ctx
+                var company = 
+                    ctx
                     .Companies
-                    .Select(p =>
-                    new CompanyProfileDetail
+                    .Single(p => p.CompanyID == id);
+                   return new CompanyProfileDetail
                     {
-                        CompanyName = p.CompanyName,
-                        CategoryID = p.CategoryID,
-
-                        
-
-                    });
-                return company;
+                      CompanyName = company.CompanyName,
+                      CategoryID = company.CategoryID
+                    };
+               
             }
         }
         public bool DeleteCompanyProfile(int companyid)
