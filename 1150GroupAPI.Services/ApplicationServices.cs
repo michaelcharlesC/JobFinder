@@ -1,10 +1,10 @@
-﻿using System;
+﻿using _1150GroupAPI.Data;
+using _1150GroupAPI.Models.Application2Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _1150GroupAPI.Models.ApplicationModel;
-using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Services
 {
@@ -16,102 +16,116 @@ namespace _1150GroupAPI.Services
         {
             _userId = userId;
         }
-
         public bool CreateApplication(ApplicationCreate model)
         {
-            var entity = new Applicant()
+            using(var ctx=new ApplicationDbContext())
             {
-                OwnerId = _userId,
-                ApplicantFirstName = model.ApplicantFirstName,
-                ApplicantEmail = model.ApplicantEmail,
-                ApplicantLastName = model.ApplicantLastName,
-               
-
-            };
-
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.Applicants.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-        public IEnumerable<ApplicationList> GetAllApplications()
-        {
-            using(var ctx = new ApplicationDbContext())
-            {
-                var query = ctx.Applicants.Where(e => e.OwnerId == _userId)
-                    .Select(e => new ApplicationList
-                    {
-                        ApplicantEmail = e.ApplicantEmail,
-                        ApplicantFirstName = e.ApplicantFirstName,
-                        ApplicantLastName = e.ApplicantLastName,
-                    });
-
-                return query.ToArray();
-            }
-        }
-
-        public ApplicationDetail GetAplicationById(int id)
-        {
-            using( var ctx = new ApplicationDbContext())
-            {
-                var query = ctx.Applicants.Single(e => e.ApplicantId == id && e.OwnerId == _userId);
-
-                return new ApplicationDetail
+                var job = ctx.Jobs.Find(model.JobId);
+                if (job is null)
+                    return false;
+                var applicant = ctx.Applicants.Find(model.ApplicantId);
+                if (applicant is null)
+                    return false;
+                var job1 = ctx
+                                .Applications
+                                .SingleOrDefault(e => e.Id != 0 && (e.ApplicantId == model.ApplicantId && e.JobId == model.JobId));
+                if (job1 != null)
+                    return false;
+                var entity = new Application()
                 {
-                    ApplicantId = query.ApplicantId,
-                    ApplicantFirstName = query.ApplicantFirstName,
-                    ApplicantLastName = query.ApplicantLastName,
-                    ApplicantEmail = query.ApplicantEmail,
-                    ApplicantDate = query.ApplicationDate
+
+                    ApplicantId = model.ApplicantId,
+                    JobId = model.JobId,
+                    Ownerid = _userId,
+                    ApplicationDate = DateTimeOffset.Now.Date
+
                 };
-
-
-
+                ctx.Applications.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+            
+        }
+        public IEnumerable<ApplicationListItem> GetAllApplication()
+        {
+            using(var  ctx=new ApplicationDbContext())
+            {
+                var query = ctx
+                               .Applications
+                               .Select(e => new ApplicationListItem()
+                               {
+                                   ApplicationId = e.Id,
+                                   ApplicantName = e.Applicant.ApplicantFirstName,
+                                   CompanyName = e.Job.CompanyProfile.CompanyName,
+                                   JobName = e.Job.JobPosition
+                               }).ToList();
+                return query;
             }
         }
-
-        public ApplicationDetail GetApplicationsByJobId(int jobId)
+        public ApplicationDataDetail GetApplicationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var queryJob = ctx.Jobs.FirstOrDefault(e => e.JobId == jobId && e.OwnerId == _userId);
-
-
-                return new ApplicationDetail
+                var query = ctx
+                                .Applications
+                                .Find(id);
+                if (query is null)
+                    return null;
+                return new ApplicationDataDetail()
                 {
-                    ApplicantId = queryJob.JobId,
-                    ApplicantDate = queryJob.CreatedUtc
+                    Id = query.Id,
+                    ApplicantName = query.Applicant.ApplicantFirstName,
+                    CompanyName = query.Job.CompanyProfile.CompanyName,
+                    ApplicationDate = query.ApplicationDate,
+                    JobPosition = query.Job.JobPosition
                 };
-
             }
         }
+        public IEnumerable<ApplicationListItem> GetApplicationsByCompanyName(string CompanyName)
+        {
+            using(var ctx=new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Applications
+                                .Where(e => e.Job.CompanyProfile.CompanyName == CompanyName)
+                                .Select(e => new ApplicationListItem()
+                                {
 
-        public bool UpdateApplication(ApplicationEdit model)
+                                    ApplicationId = e.Id,
+                                    ApplicantName = e.Applicant.ApplicantFirstName,
+                                    CompanyName = e.Job.CompanyProfile.CompanyName,
+                                    JobName = e.Job.JobPosition
+                                }).ToList();
+                return query;
+            }
+        }
+        public bool UpdateApplication(ApplicationEdit model, int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Applicants.Single(e => e.ApplicantId == model.ApplicantId && e.OwnerId == _userId);
-                entity.ApplicantFirstName = model.ApplicantFirstName;
-                entity.ApplicantLastName = model.ApplicantLastName;
-                entity.ApplicantEmail = model.ApplicantEmail;
-
+                var query = ctx
+                                .Applications
+                                .Find(id);
+                if (query is null)
+                    return false;
+                if (query.Id != id)
+                    return false;
+                query.JobId = model.JobId;
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteApplication(int id)
+        {
+            using(var ctx=new ApplicationDbContext())
+            {
+                var query = ctx
+                               .Applications
+                               .Find(id);
+                if (query is null)
+                    return false;
+                ctx.Applications.Remove(query);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteApplication(int applicationId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity = ctx.Applicants.Single(e => e.ApplicantId == applicationId && e.OwnerId == _userId);
-                ctx.Applicants.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-        
     }
 }

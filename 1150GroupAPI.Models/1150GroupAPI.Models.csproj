@@ -56,10 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationModel\ApplicationCreate.cs" />
-    <Compile Include="ApplicationModel\ApplicationDetail.cs" />
-    <Compile Include="ApplicationModel\ApplicationEdit.cs" />
-    <Compile Include="ApplicationModel\ApplicationList.cs" />
+    <Compile Include="Application2Model\ApplicationCreate.cs" />
+    <Compile Include="Application2Model\ApplicationDataDetail.cs" />
+    <Compile Include="Application2Model\ApplicationEdit.cs" />
+    <Compile Include="Application2Model\ApplicationListItem.cs" />
+    <Compile Include="ApplicationModel\ApplicantCreate.cs" />
+    <Compile Include="ApplicationModel\ApplicantDataDetail.cs" />
+    <Compile Include="ApplicationModel\ApplicantEdit.cs" />
+    <Compile Include="ApplicationModel\ApplicantListItem.cs" />
     <Compile Include="CategoryModels\CategoryCreate.cs" />
     <Compile Include="CategoryModels\CategoryListItem.cs" />
     <Compile Include="CompanyLocationModels\CompanyLocationCreate.cs" />

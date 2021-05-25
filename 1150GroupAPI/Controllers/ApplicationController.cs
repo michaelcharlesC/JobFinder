@@ -1,82 +1,77 @@
-﻿using System;
+﻿using _1150GroupAPI.Models.Application2Model;
+using _1150GroupAPI.Services;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using _1150GroupAPI.Models.ApplicationModel;
-using _1150GroupAPI.Services;
-using Microsoft.AspNet.Identity;
 
 namespace _1150GroupAPI.Controllers
 {
-   [Authorize]
+
+    [Authorize]
     public class ApplicationController : ApiController
     {
-        private ApplicationServices CreateAplicationService()
+        private ApplicationServices CreateApplicationServices()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var applicationService = new ApplicationServices(userId);
             return applicationService;
         }
-        [HttpGet]
-        public IHttpActionResult Get()
+
+        public IHttpActionResult PostApplication(ApplicationCreate model)
         {
-            ApplicationServices applicationService = CreateAplicationService();
-            var application = applicationService.GetAllApplications();
-            return Ok(application);
-        }
-        [HttpPost]
-        public IHttpActionResult Post(ApplicationCreate application)
-        {
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            if (model is null)
+                return BadRequest("You cannot have an empty input");
+            if (model.ApplicantId == 0 || model.JobId == 0)
+                return BadRequest("Id cannot be null");
 
-            var service = CreateAplicationService();
+            var service = CreateApplicationServices();
 
-            if (!service.CreateApplication(application))
+            if (!service.CreateApplication(model))
                 return InternalServerError();
 
             return Ok();
         }
-        [HttpGet]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult GetAllApplication()
         {
-            ApplicationServices applicationService = CreateAplicationService();
-            var application = applicationService.GetAplicationById(id);
-            return Ok(application);
+            var applicationService = CreateApplicationServices();
+            var applications = applicationService.GetAllApplication();
+            return Ok(applications);
+
         }
-        [HttpGet]
-        public IHttpActionResult GetByJobId(int jobId)
+        public IHttpActionResult GetApplicationById(int id)
         {
-            ApplicationServices applicationService = CreateAplicationService();
-            var application = applicationService.GetApplicationsByJobId(jobId);
+            var applicationService = CreateApplicationServices();
+            var application = applicationService.GetApplicationById(id);
             return Ok(application);
+
+        }
+        public IHttpActionResult GetApplicationByCompanyName(string CompanyName)
+        {
+            var applicationService = CreateApplicationServices();
+            var application = applicationService.GetApplicationsByCompanyName(CompanyName);
+            return Ok(application);
+
         }
         [HttpPut]
-        public IHttpActionResult Put(ApplicationEdit application)
+        public IHttpActionResult UpdateApplication(ApplicationEdit model, int id)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var service = CreateAplicationService();
-
-            if (!service.UpdateApplication(application))
-                return InternalServerError();
-
-            return Ok();
-
+            var applicationService = CreateApplicationServices();
+            var application = applicationService.UpdateApplication(model,id);
+            return Ok("Update successfull");
 
         }
-        [HttpDelete]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult DeleteAplication(int id)
         {
-            var service = CreateAplicationService();
-
-            if (!service.DeleteApplication(id))
-                return InternalServerError();
-
-            return Ok();
+            var applicationService = CreateApplicationServices();
+            var application = applicationService.DeleteApplication( id);
+            return Ok("Application Deleted Successfully");
         }
     }
 }

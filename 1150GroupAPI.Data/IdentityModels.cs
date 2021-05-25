@@ -52,6 +52,7 @@ namespace _1150GroupAPI.Data
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<Application> Applications { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

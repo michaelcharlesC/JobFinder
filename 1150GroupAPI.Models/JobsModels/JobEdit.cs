@@ -8,6 +8,7 @@ namespace _1150GroupAPI.Models.JobsModels
 {
     public class JobEdit
     {
+        public int JobId { get; set; }
         public string JobPosition { get; set; }
         public string JobDescription { get; set; }
         public string JobType { get; set; }
