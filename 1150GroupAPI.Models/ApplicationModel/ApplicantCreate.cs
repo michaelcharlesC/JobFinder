@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1150GroupAPI.Models.ApplicationModel
 {
-    public class ApplicationCreate
+    public class ApplicantCreate
     {
         [Required]
         [MinLength(2,ErrorMessage ="Please enter at least 2 characters")]
@@ -18,6 +18,7 @@ namespace _1150GroupAPI.Models.ApplicationModel
         [Required]
         [DataType(DataType.EmailAddress)]
         public string ApplicantEmail { get; set; }
+        
 
     }
 }

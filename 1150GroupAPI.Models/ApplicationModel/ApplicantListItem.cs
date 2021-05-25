@@ -8,7 +8,7 @@ using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Models.ApplicationModel
 {
-    public class ApplicationList
+    public class ApplicantListItem
     {
         [Display(Name = "Applicant First Name")]
         public string ApplicantFirstName { get; set; }
@@ -16,7 +16,7 @@ namespace _1150GroupAPI.Models.ApplicationModel
         public string ApplicantLastName { get; set; }
         [Display(Name = "Applicant Email Address")]
         public string ApplicantEmail { get; set; }
-        [Display(Name = "List of Applied Jobs")]
-        public virtual ICollection<Job> ListOfJobs { get; set; }
+        //[Display(Name = "List of Applied Jobs")]
+        //public virtual ICollection<Job> ListOfJobs { get; set; }
     }
 }
