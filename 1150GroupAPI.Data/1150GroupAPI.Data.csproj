@@ -87,43 +87,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applicant.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="CompanyLocation.cs" />
     <Compile Include="CompanyProfile.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
-    <Compile Include="Migrations\202105191246234_Initial.cs" />
-    <Compile Include="Migrations\202105191246234_Initial.Designer.cs">
-      <DependentUpon>202105191246234_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202105251543139_InitialCreate.cs" />
+    <Compile Include="Migrations\202105251543139_InitialCreate.Designer.cs">
+      <DependentUpon>202105251543139_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105191504397_second.cs" />
-    <Compile Include="Migrations\202105191504397_second.Designer.cs">
-      <DependentUpon>202105191504397_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191650293_sec.cs" />
-    <Compile Include="Migrations\202105191650293_sec.Designer.cs">
-      <DependentUpon>202105191650293_sec.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105192126041_secc.cs" />
-    <Compile Include="Migrations\202105192126041_secc.Designer.cs">
-      <DependentUpon>202105192126041_secc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105192142203_secee.cs" />
-    <Compile Include="Migrations\202105192142203_secee.Designer.cs">
-      <DependentUpon>202105192142203_secee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105192212100_thi.cs" />
-    <Compile Include="Migrations\202105192212100_thi.Designer.cs">
-      <DependentUpon>202105192212100_thi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105192339461_test2.cs" />
-    <Compile Include="Migrations\202105192339461_test2.Designer.cs">
-      <DependentUpon>202105192339461_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105211040477_third.cs" />
-    <Compile Include="Migrations\202105211040477_third.Designer.cs">
-      <DependentUpon>202105211040477_third.cs</DependentUpon>
+    <Compile Include="Migrations\202105252250297_71.cs" />
+    <Compile Include="Migrations\202105252250297_71.Designer.cs">
+      <DependentUpon>202105252250297_71.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,29 +110,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105191246234_Initial.resx">
-      <DependentUpon>202105191246234_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105251543139_InitialCreate.resx">
+      <DependentUpon>202105251543139_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191504397_second.resx">
-      <DependentUpon>202105191504397_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191650293_sec.resx">
-      <DependentUpon>202105191650293_sec.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105192126041_secc.resx">
-      <DependentUpon>202105192126041_secc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105192142203_secee.resx">
-      <DependentUpon>202105192142203_secee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105192212100_thi.resx">
-      <DependentUpon>202105192212100_thi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105192339461_test2.resx">
-      <DependentUpon>202105192339461_test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105211040477_third.resx">
-      <DependentUpon>202105211040477_third.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105252250297_71.resx">
+      <DependentUpon>202105252250297_71.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
