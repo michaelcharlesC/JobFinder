@@ -5,20 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1150GroupAPI.Models.ApplicationModel
+namespace _1150GroupAPI.Data
 {
-    public class ApplicationEdit
+    public class Applicant
     {
-        [Required]
-        [Display(Name = "Applicant ID")]
+        [Key]
         public int ApplicantId { get; set; }
-        [Display(Name = "Applicant First Name")]
+        public Guid OwnerId { get; set; }
+        [Required]
         public string ApplicantFirstName { get; set; }
-        [Display(Name = "Applicant Last Name")]
+        [Required]
         public string ApplicantLastName { get; set; }
-        
+        public string AllicantFullName
+        {
+            get
+            {
+                return ApplicantFirstName + " " + ApplicantLastName;
+            }
+        }
+        [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Applicant Email Address")]
         public string ApplicantEmail { get; set; }
     }
 }

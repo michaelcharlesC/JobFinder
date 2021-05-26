@@ -11,30 +11,30 @@ using Microsoft.AspNet.Identity;
 namespace _1150GroupAPI.Controllers
 {
    [Authorize]
-    public class ApplicationController : ApiController
+    public class ApplicantController : ApiController
     {
-        private ApplicationServices CreateAplicationService()
+        private ApplicantServices CreateAplicationService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var applicationService = new ApplicationServices(userId);
-            return applicationService;
+            var ApplicantService = new ApplicantServices(userId);
+            return ApplicantService;
         }
         [HttpGet]
         public IHttpActionResult Get()
         {
-            ApplicationServices applicationService = CreateAplicationService();
-            var application = applicationService.GetAllApplications();
-            return Ok(application);
+            ApplicantServices ApplicantService = CreateAplicationService();
+            var Applicant = ApplicantService.GetAllApplicants();
+            return Ok(Applicant);
         }
         [HttpPost]
-        public IHttpActionResult Post(ApplicationCreate application)
+        public IHttpActionResult Post(ApplicantCreate Applicant)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateAplicationService();
 
-            if (!service.CreateApplication(application))
+            if (!service.CreateApplicant(Applicant))
                 return InternalServerError();
 
             return Ok();
@@ -42,26 +42,20 @@ namespace _1150GroupAPI.Controllers
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            ApplicationServices applicationService = CreateAplicationService();
-            var application = applicationService.GetAplicationById(id);
-            return Ok(application);
+            ApplicantServices ApplicantService = CreateAplicationService();
+            var Applicant = ApplicantService.GetApplicantsById(id);
+            return Ok(Applicant);
         }
-        [HttpGet]
-        public IHttpActionResult GetByJobId(int jobId)
-        {
-            ApplicationServices applicationService = CreateAplicationService();
-            var application = applicationService.GetApplicationsByJobId(jobId);
-            return Ok(application);
-        }
+       
         [HttpPut]
-        public IHttpActionResult Put(ApplicationEdit application)
+        public IHttpActionResult Put(ApplicantEdit Applicant)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateAplicationService();
 
-            if (!service.UpdateApplication(application))
+            if (!service.UpdateApplicant(Applicant))
                 return InternalServerError();
 
             return Ok();
@@ -73,7 +67,7 @@ namespace _1150GroupAPI.Controllers
         {
             var service = CreateAplicationService();
 
-            if (!service.DeleteApplication(id))
+            if (!service.DeleteApplicant(id))
                 return InternalServerError();
 
             return Ok();

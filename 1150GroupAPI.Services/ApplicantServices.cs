@@ -8,16 +8,16 @@ using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Services
 {
-    public class ApplicationServices
+    public class ApplicantServices
     {
         private Guid _userId;
 
-        public ApplicationServices(Guid userId)
+        public ApplicantServices(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateApplication(ApplicationCreate model)
+        public bool CreateApplicant(ApplicantCreate model)
         {
             var entity = new Applicant()
             {
@@ -36,12 +36,12 @@ namespace _1150GroupAPI.Services
             }
         }
 
-        public IEnumerable<ApplicationList> GetAllApplications()
+        public IEnumerable<ApplicantList> GetAllApplicants()
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var query = ctx.Applicants.Where(e => e.OwnerId == _userId)
-                    .Select(e => new ApplicationList
+                    .Select(e => new ApplicantList
                     {
                         ApplicantEmail = e.ApplicantEmail,
                         ApplicantFirstName = e.ApplicantFirstName,
@@ -52,19 +52,19 @@ namespace _1150GroupAPI.Services
             }
         }
 
-        public ApplicationDetail GetAplicationById(int id)
+        public ApplicantDetail GetApplicantsById(int id)
         {
             using( var ctx = new ApplicationDbContext())
             {
                 var query = ctx.Applicants.Single(e => e.ApplicantId == id && e.OwnerId == _userId);
 
-                return new ApplicationDetail
+                return new ApplicantDetail
                 {
                     ApplicantId = query.ApplicantId,
                     ApplicantFirstName = query.ApplicantFirstName,
                     ApplicantLastName = query.ApplicantLastName,
                     ApplicantEmail = query.ApplicantEmail,
-                    ApplicantDate = query.ApplicationDate
+                    
                 };
 
 
@@ -72,23 +72,8 @@ namespace _1150GroupAPI.Services
             }
         }
 
-        public ApplicationDetail GetApplicationsByJobId(int jobId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var queryJob = ctx.Jobs.FirstOrDefault(e => e.JobId == jobId && e.OwnerId == _userId);
 
-
-                return new ApplicationDetail
-                {
-                    ApplicantId = queryJob.JobId,
-                    ApplicantDate = queryJob.CreatedUtc
-                };
-
-            }
-        }
-
-        public bool UpdateApplication(ApplicationEdit model)
+        public bool UpdateApplicant(ApplicantEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -101,7 +86,7 @@ namespace _1150GroupAPI.Services
             }
         }
 
-        public bool DeleteApplication(int applicationId)
+        public bool DeleteApplicant(int applicationId)
         {
             using (var ctx = new ApplicationDbContext())
             {

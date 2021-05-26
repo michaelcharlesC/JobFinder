@@ -88,19 +88,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
+    <Compile Include="Applicant.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="CompanyLocation.cs" />
     <Compile Include="CompanyProfile.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
-    <Compile Include="Migrations\202105151912091_example.cs" />
-    <Compile Include="Migrations\202105151912091_example.designer.cs">
-      <DependentUpon>202105151912091_example.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105190037382_AnyNam.cs" />
-    <Compile Include="Migrations\202105190037382_AnyNam.designer.cs">
-      <DependentUpon>202105190037382_AnyNam.cs</DependentUpon>
+    <Compile Include="Migrations\202105252332457_Update.cs" />
+    <Compile Include="Migrations\202105252332457_Update.designer.cs">
+      <DependentUpon>202105252332457_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,11 +106,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105151912091_example.resx">
-      <DependentUpon>202105151912091_example.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105190037382_AnyNam.resx">
-      <DependentUpon>202105190037382_AnyNam.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105252332457_Update.resx">
+      <DependentUpon>202105252332457_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,20 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _1150GroupAPI.Data;
 
 namespace _1150GroupAPI.Models.ApplicationModel
 {
-    public class ApplicationCreate
+    public class ApplicantList
     {
-        [Required]
-        [MinLength(2,ErrorMessage ="Please enter at least 2 characters")]
+        [Display(Name = "Applicant First Name")]
         public string ApplicantFirstName { get; set; }
-        [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
+        [Display(Name = "Applicant Last Name")]
         public string ApplicantLastName { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Applicant Email Address")]
         public string ApplicantEmail { get; set; }
-
+        
     }
 }

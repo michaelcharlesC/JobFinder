@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="CategoryService.cs" />
     <Compile Include="CompanyLocationServices.cs" />
-    <Compile Include="ApplicationServices.cs" />
+    <Compile Include="ApplicantServices.cs" />
     <Compile Include="CompanyProfileServices.cs" />
     <Compile Include="JobServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
