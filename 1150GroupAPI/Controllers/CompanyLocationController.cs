@@ -27,6 +27,14 @@ namespace _1150GroupAPI.Controllers
             var companies = companyLocationServices.GetCompanyLocationById(id);
             return Ok(companies);
         }
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            CompanyLocationServices companyService = CreateCompanyLocationService();
+            var companies = companyService.GetAllCompanyLocations();
+            return Ok(companies);
+        }
+
         [HttpPost]
         public IHttpActionResult Post(CompanyLocationCreate companyLocation )
         {
