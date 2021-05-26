@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1150GroupAPI.Models.ApplicationModel
+namespace _1150GroupAPI.Models.ApplicantModel
 {
     public class ApplicantEdit
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using _1150GroupAPI.Data;
 
-namespace _1150GroupAPI.Models.ApplicationModel
+namespace _1150GroupAPI.Models.ApplicantModel
 {
     public class ApplicantDetail
     {

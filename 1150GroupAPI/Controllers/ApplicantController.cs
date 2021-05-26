@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using _1150GroupAPI.Models.ApplicationModel;
+using _1150GroupAPI.Models.ApplicantModel;
 using _1150GroupAPI.Services;
 using Microsoft.AspNet.Identity;
 
