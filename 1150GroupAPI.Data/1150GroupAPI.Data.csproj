@@ -98,14 +98,14 @@
     <Compile Include="Migrations\202105252240284_ex.cs" />
     <Compile Include="Migrations\202105252240284_ex.Designer.cs">
       <DependentUpon>202105252240284_ex.cs</DependentUpon>
-
+</Compile>
     <Compile Include="Migrations\202105251543139_InitialCreate.cs" />
     <Compile Include="Migrations\202105251543139_InitialCreate.Designer.cs">
       <DependentUpon>202105251543139_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202105252250297_71.cs" />
     <Compile Include="Migrations\202105252250297_71.Designer.cs">
-      <DependentUpon>202105252250297_71.cs</DependentUpon>>>>>>>> develop
+      <DependentUpon>202105252250297_71.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,7 +118,7 @@
 
     <EmbeddedResource Include="Migrations\202105252240284_ex.resx">
       <DependentUpon>202105252240284_ex.cs</DependentUpon>
-
+</EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105251543139_InitialCreate.resx">
       <DependentUpon>202105251543139_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
