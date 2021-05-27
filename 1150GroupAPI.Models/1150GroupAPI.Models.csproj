@@ -70,6 +70,7 @@
     <Compile Include="CompanyLocationModels\CompanyLocationDelete.cs" />
     <Compile Include="CompanyLocationModels\CompanyLocationDetail.cs" />
     <Compile Include="CompanyLocationModels\CompanyLocationEdit.cs" />
+    <Compile Include="CompanyLocationModels\CompanyLocationListItem.cs" />
     <Compile Include="CompanyProfileModels\CompanyProfileCreate.cs" />
     <Compile Include="CompanyProfileModels\CompanyProfileDelete.cs" />
     <Compile Include="CompanyProfileModels\CompanyProfileDetail.cs" />
