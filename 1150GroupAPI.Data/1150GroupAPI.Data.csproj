@@ -94,18 +94,13 @@
     <Compile Include="CompanyProfile.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
-
-    <Compile Include="Migrations\202105252240284_ex.cs" />
-    <Compile Include="Migrations\202105252240284_ex.Designer.cs">
-      <DependentUpon>202105252240284_ex.cs</DependentUpon>
-	</Compile>
-    <Compile Include="Migrations\202105251543139_InitialCreate.cs" />
-    <Compile Include="Migrations\202105251543139_InitialCreate.Designer.cs">
-      <DependentUpon>202105251543139_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202105280133509_InitialCreate.cs" />
+    <Compile Include="Migrations\202105280133509_InitialCreate.Designer.cs">
+      <DependentUpon>202105280133509_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105252250297_71.cs" />
-    <Compile Include="Migrations\202105252250297_71.Designer.cs">
-      <DependentUpon>202105252250297_71.cs</DependentUpon>
+    <Compile Include="Migrations\202105280213240_test.cs" />
+    <Compile Include="Migrations\202105280213240_test.Designer.cs">
+      <DependentUpon>202105280213240_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,15 +110,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-
-    <EmbeddedResource Include="Migrations\202105252240284_ex.resx">
-      <DependentUpon>202105252240284_ex.cs</DependentUpon>
-	</EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105251543139_InitialCreate.resx">
-      <DependentUpon>202105251543139_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105280133509_InitialCreate.resx">
+      <DependentUpon>202105280133509_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105252250297_71.resx">
-      <DependentUpon>202105252250297_71.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105280213240_test.resx">
+      <DependentUpon>202105280213240_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

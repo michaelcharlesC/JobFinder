@@ -25,7 +25,9 @@ namespace _1150GroupAPI.Services
                                
 
                 companyentity.CompanyName = model.CompanyName;
-                companyentity.CategoryID = model.CategoryID;
+                if(model.CategoryID != 0)
+                    companyentity.CategoryID = model.CategoryID;
+
 
 
                 ctx.Companies.Add(companyentity);
@@ -94,6 +96,7 @@ namespace _1150GroupAPI.Services
 
                 entity.CompanyID = model.CompanyID;
                 entity.CompanyName = model.CompanyName;
+                entity.CategoryID = model.CategoryID;
 
                 return ctx.SaveChanges() == 1;
             }

@@ -10,6 +10,7 @@ namespace _1150GroupAPI.Models.CategoryModels
 {
     public class CategoryListItem
     {
+        public int CategoryID { get; set; }
         public string CategoryName { get; set; }
 
     }

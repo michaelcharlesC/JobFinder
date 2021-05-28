@@ -46,13 +46,7 @@ namespace _1150GroupAPI.Controllers
             var application = applicationService.GetApplicantById(id);
             return Ok(application);
         }
-        //[HttpGet]
-        //public IHttpActionResult GetByJobId(int jobId)
-        //{
-        //    ApplicantServices applicationService = CreateApplicantServices();
-        //    var application = applicationService.GetApplicationsByJobId(jobId);
-        //    return Ok(application);
-        //}
+
         [HttpPut]
         public IHttpActionResult Put(ApplicantEdit application)
         {

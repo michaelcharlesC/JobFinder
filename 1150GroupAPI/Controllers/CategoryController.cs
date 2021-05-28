@@ -37,5 +37,31 @@ namespace _1150GroupAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult GetByID(int Id)
+        {
+            CategoryService categoryService = CreateCategoryService();
+            var categories = categoryService.GetCategoryByID(Id);
+            return Ok(categories);
+        }
+
+        public IHttpActionResult Delete(int Id)
+        {
+            CategoryService categoryService = CreateCategoryService();
+            var categories = categoryService.DeleteCategory(Id);
+            return Ok("Category was deleted");
+        }
+
+        public IHttpActionResult Put(CategoryCreate model, int Id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCategoryService();
+
+            var categories = service.UpdateCategory(model, Id);
+
+            return Ok();
+        }
     }
 }
