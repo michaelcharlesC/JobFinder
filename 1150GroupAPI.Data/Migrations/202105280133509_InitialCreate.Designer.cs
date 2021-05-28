@@ -13,7 +13,7 @@ namespace _1150GroupAPI.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202105251543139_InitialCreate"; }
+            get { return "202105280133509_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

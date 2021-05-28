@@ -17,7 +17,7 @@ namespace _1150GroupAPI.Data
 
         public ICollection<Job> ListOfJobs { get; set; }
         [ForeignKey(nameof(Category))]
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
         public virtual Category Category { get; set; }
         public CompanyProfile()
         {
