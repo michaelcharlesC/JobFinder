@@ -94,13 +94,9 @@
     <Compile Include="CompanyProfile.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Job.cs" />
-    <Compile Include="Migrations\202105280133509_InitialCreate.cs" />
-    <Compile Include="Migrations\202105280133509_InitialCreate.Designer.cs">
-      <DependentUpon>202105280133509_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105280213240_test.cs" />
-    <Compile Include="Migrations\202105280213240_test.Designer.cs">
-      <DependentUpon>202105280213240_test.cs</DependentUpon>
+    <Compile Include="Migrations\202106032156578_test.cs" />
+    <Compile Include="Migrations\202106032156578_test.Designer.cs">
+      <DependentUpon>202106032156578_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,11 +106,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105280133509_InitialCreate.resx">
-      <DependentUpon>202105280133509_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105280213240_test.resx">
-      <DependentUpon>202105280213240_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106032156578_test.resx">
+      <DependentUpon>202106032156578_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

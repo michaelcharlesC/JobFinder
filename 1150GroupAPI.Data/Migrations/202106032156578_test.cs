@@ -3,7 +3,7 @@ namespace _1150GroupAPI.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
@@ -89,7 +89,7 @@ namespace _1150GroupAPI.Data.Migrations
                         Zip = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CompanyID)
-                .ForeignKey("dbo.CompanyProfile", t => t.CompanyID)
+                .ForeignKey("dbo.CompanyProfile", t => t.CompanyID, cascadeDelete: true)
                 .Index(t => t.CompanyID);
             
             CreateTable(

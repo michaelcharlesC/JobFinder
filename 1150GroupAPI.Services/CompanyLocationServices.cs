@@ -6,11 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using System.Data;
 
 namespace _1150GroupAPI.Services
 {
-    public class CompanyLocationServices
+    public class CompanyLocationServices 
     {
+
+        private Guid _userId;
+
+        public CompanyLocationServices(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateCompanyLocation(CompanyLocationCreate model)
         {
             var entity =
@@ -22,12 +31,25 @@ namespace _1150GroupAPI.Services
                     State = model.State,
                     Zip = model.Zip,
                 };
-
+            
+            var profile = (new CompanyProfileServices(_userId).GetCompanyByCompanyId(model.CompanyID));
+            //profile.
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.CompanyLocations.Add(entity);
-                return ctx.SaveChanges() == 1;
+                ctx.SaveChanges();
+                DataTable table = new DataTable("Companies");
+                foreach (DataRow dr in table.Rows) 
+                {
+                    if ((int)dr["CompanyID"] == model.CompanyID)
+                    {
+                        dr["CompanyLocation_ComapnyID"] = model.CompanyID;
+                    } 
+                }
+                 ctx.SaveChanges();
+                return true;
             }
+
         }
 
         public CompanyLocationDetail GetCompanyLocationById(int locationID)
@@ -77,7 +99,10 @@ namespace _1150GroupAPI.Services
                     ctx
                         .CompanyLocations
                         .Single(e => e.CompanyID == model.CompanyID);
-                entity.CompanyID = model.CompanyID;
+                entity.Street = model.Street;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.Zip = model.Zip;
                 return ctx.SaveChanges() == 1;
             }
         }

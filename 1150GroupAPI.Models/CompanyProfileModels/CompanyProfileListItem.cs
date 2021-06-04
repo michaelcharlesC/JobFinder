@@ -10,7 +10,6 @@ namespace _1150GroupAPI.Models
     {
         public int CompanyID { get; set; }
         public string CompanyName { get; set; }
-        public int? LocationID { get; set; }
         public int? CategoryID { get; set; }
     }
 }

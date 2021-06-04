@@ -64,16 +64,23 @@ namespace _1150GroupAPI.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
 
-            modelBuilder.Entity<CompanyLocation>()
-           //.HasKey(s => s.CompanyID)
-           .HasRequired(s => s.CompanyProfile)
-           .WithRequiredDependent()
-           .WillCascadeOnDelete(true);
+            /*   modelBuilder.Entity<CompanyLocation>()
+              //.HasKey(s => s.CompanyID)
+              .HasRequired(s => s.CompanyProfile)
+              .WithRequiredDependent()
+              .WillCascadeOnDelete(true);*/
+
+
 
 
 
             modelBuilder.Entity<CompanyProfile>()
-            .HasOptional<CompanyLocation>(p => p.CompanyLocation);// can create a company profile without having a company location.
+            .HasOptional(p => p.CompanyLocation)// can create a company profile without having a company location.
+            .WithRequired(c => c.CompanyProfile)
+            .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<CompanyLocation>()
+                .HasKey(cl => cl.CompanyID);
             //.WithRequired(s => s.);
         }
     }
