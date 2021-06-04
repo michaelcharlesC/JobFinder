@@ -10,7 +10,6 @@ namespace _1150GroupAPI.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "_1150GroupAPI.Data.ApplicationDbContext";
         }
 
         protected override void Seed(_1150GroupAPI.Data.ApplicationDbContext context)

@@ -63,7 +63,9 @@ namespace _1150GroupAPI.Services
         {
             using( var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Applicants.Single(e => e.ApplicantId == id && e.OwnerId == _userId);
+                var query = ctx.Applicants.SingleOrDefault(e => e.ApplicantId == id && e.OwnerId == _userId);
+                if (query is null)
+                    return null;
 
                 return new ApplicantDataDetail
                 {
@@ -83,7 +85,9 @@ namespace _1150GroupAPI.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Applicants.Single(e => e.ApplicantId == model.ApplicantId && e.OwnerId == _userId);
+                var entity = ctx.Applicants.SingleOrDefault(e => e.ApplicantId == model.ApplicantId && e.OwnerId == _userId);
+                if (entity is null)
+                    return false;
                 entity.ApplicantFirstName = model.ApplicantFirstName;
                 entity.ApplicantLastName = model.ApplicantLastName;
                 entity.ApplicantEmail = model.ApplicantEmail;
@@ -96,7 +100,9 @@ namespace _1150GroupAPI.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Applicants.Single(e => e.ApplicantId == applicationId && e.OwnerId == _userId);
+                var entity = ctx.Applicants.SingleOrDefault(e => e.ApplicantId == applicationId && e.OwnerId == _userId);
+                if (entity is null)
+                    return false;
                 ctx.Applicants.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

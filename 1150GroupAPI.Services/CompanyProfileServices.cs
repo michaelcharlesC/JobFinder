@@ -82,6 +82,7 @@ namespace _1150GroupAPI.Services
 
                 ctx.Companies.Remove(entity);
 
+
                 return ctx.SaveChanges() == 1;
             }
         }

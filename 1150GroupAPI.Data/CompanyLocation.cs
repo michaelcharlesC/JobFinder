@@ -10,7 +10,7 @@ namespace _1150GroupAPI.Data
 {
     public class CompanyLocation
     {
-        [Key, ForeignKey(nameof(CompanyProfile))]
+        //[Key, ForeignKey(nameof(CompanyProfile))]
         public int CompanyID { get; set; }
         public virtual CompanyProfile CompanyProfile { get; set; }
 

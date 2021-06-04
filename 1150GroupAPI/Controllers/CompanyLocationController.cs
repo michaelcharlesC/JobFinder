@@ -17,7 +17,7 @@ namespace _1150GroupAPI.Controllers
         private CompanyLocationServices CreateCompanyLocationService()
         {
             Guid userid = Guid.Parse(User.Identity.GetUserId());
-            var companyLocationService = new CompanyLocationServices();
+            var companyLocationService = new CompanyLocationServices(userid);
             return companyLocationService;
         }
         [HttpGet]
