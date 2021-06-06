@@ -26,9 +26,11 @@ namespace _1150GroupAPI.Services
                 var applicant = ctx.Applicants.Find(model.ApplicantId);
                 if (applicant is null)
                     return false;
+                if (applicant.OwnerId != _userId)
+                    return false;
                 var job1 = ctx
                                 .Applications
-                                .SingleOrDefault(e => e.Id != 0 && (e.ApplicantId == model.ApplicantId && e.JobId == model.JobId));
+                                .SingleOrDefault(e => e.Id != 0 && (e.ApplicantId == model.ApplicantId && e.JobId == model.JobId));// Ensuring that there is no duplicate application for the same job by the same applicant
                 if (job1 != null)
                     return false;
                 var entity = new Application()
@@ -51,6 +53,7 @@ namespace _1150GroupAPI.Services
             {
                 var query = ctx
                                .Applications
+                               .Where(e=>e.Job.OwnerId==_userId||e.Ownerid==_userId) //getting Applications by either the jobs administrator that posted the job or the the applicant
                                .Select(e => new ApplicationListItem()
                                {
                                    ApplicationId = e.Id,
@@ -67,7 +70,7 @@ namespace _1150GroupAPI.Services
             {
                 var query = ctx
                                 .Applications
-                                .Find(id);
+                                .SingleOrDefault(e=>e.Id==id&& (e.Job.OwnerId==_userId||e.Ownerid==_userId));//getting application a single by  the applicant or the job admin
                 if (query is null)
                     return null;
                 return new ApplicationDataDetail()
@@ -86,7 +89,7 @@ namespace _1150GroupAPI.Services
             {
                 var query = ctx
                                 .Applications
-                                .Where(e => e.Job.CompanyProfile.CompanyName == CompanyName)
+                                .Where(e => e.Job.CompanyProfile.CompanyName == CompanyName&&(e.Job.OwnerId==_userId||e.Ownerid==_userId))//Ensuring only job admin and the user can search for submitted application
                                 .Select(e => new ApplicationListItem()
                                 {
 
@@ -104,7 +107,7 @@ namespace _1150GroupAPI.Services
             {
                 var query = ctx
                                 .Applications
-                                .Find(id);
+                                .SingleOrDefault(e=>e.Id==id && e.Ownerid==_userId);
                 if (query is null)
                     return false;
                 if (query.Id != id)
@@ -119,7 +122,7 @@ namespace _1150GroupAPI.Services
             {
                 var query = ctx
                                .Applications
-                               .Find(id);
+                               .SingleOrDefault(e=>e.Ownerid==_userId);
                 if (query is null)
                     return false;
                 ctx.Applications.Remove(query);
