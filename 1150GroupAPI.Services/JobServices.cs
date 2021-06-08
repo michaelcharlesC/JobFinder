@@ -18,23 +18,30 @@ namespace _1150GroupAPI.Services
 
         public bool CreateJob(JobCreate model)
         {
-            var jobEntity = new Job()
-            {
-                OwnerId = _UserId,
-                JobPosition = model.JobPosition,
-                JobRequirement = model.JobRequirement,
-                JobDescription = model.JobDescription,
-                JobType = model.JobType,
-                Salary = model.Salary,
-                CompanyId=model.CompanyId
-
-            };
-
             using (var ctx = new ApplicationDbContext())
             {
+                var company = ctx.Companies.SingleOrDefault(e => e.CompanyID == model.CompanyId);
+                if (company.OwnerId != _UserId)
+                    return false;
+                var jobEntity = new Job()
+                {
+                    OwnerId = _UserId,
+                    JobPosition = model.JobPosition,
+                    JobRequirement = model.JobRequirement,
+                    JobDescription = model.JobDescription,
+                    JobType = model.JobType,
+                    Salary = model.Salary,
+                    CompanyId = model.CompanyId
+
+                };
+
+
                 ctx.Jobs.Add(jobEntity);
                 return ctx.SaveChanges() == 1;
             }
+            
+
+           
         }
         public IEnumerable<JobListItem> GetAllJobs()
         {

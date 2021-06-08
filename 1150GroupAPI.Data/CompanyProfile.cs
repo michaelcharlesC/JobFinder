@@ -12,6 +12,7 @@ namespace _1150GroupAPI.Data
     {
         [Key]
         public int CompanyID { get; set; }
+        public Guid OwnerId { get; set; }
         public string CompanyName { get; set; }
         public virtual CompanyLocation CompanyLocation { get; set; }
 
