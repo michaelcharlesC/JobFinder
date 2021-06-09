@@ -25,6 +25,7 @@ namespace _1150GroupAPI.Services
                                
 
                 companyentity.CompanyName = model.CompanyName;
+                companyentity.OwnerId = _userID;
                 if(model.CategoryID != 0)
                     companyentity.CategoryID = model.CategoryID;
 
