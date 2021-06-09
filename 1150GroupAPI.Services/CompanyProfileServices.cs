@@ -25,7 +25,11 @@ namespace _1150GroupAPI.Services
                                
 
                 companyentity.CompanyName = model.CompanyName;
-                if(model.CategoryID != 0)
+                companyentity.OwnerId = _userID;
+                var category = ctx.Categories.Find(model.CategoryID);
+                if (category is null)
+                    return false;
+                //if(model.CategoryID != 0)
                     companyentity.CategoryID = model.CategoryID;
 
 
