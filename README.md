@@ -1,3 +1,3 @@
 # 1150GroupAPI
-# [Diagram](https://dbdiagram.io/d/609b094bb29a09603d1474b5)
+# [Diagram](https://gitmind.com/app/flowchart/ed8f7c72016971e96f44c14bf4e0ab0f)
 # [Trello Board](https://trello.com/b/0VfjikhN/stories)
